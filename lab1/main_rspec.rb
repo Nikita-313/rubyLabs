@@ -1,7 +1,7 @@
-require './main' # относительный путь?
+require './main'
 
 RSpec.describe 'Main' do
-  @firstName = 'Nikita'
+  @first_name = 'Nikita'
   @surname = 'Serikov'
 
   it '#foobar test 1' do
@@ -9,7 +9,7 @@ RSpec.describe 'Main' do
   end
 
   it '#foobar test 2' do
-    expect(foobar(5, 10)).to eq(15) # как проверить puts??? по заданию медо выводит на экран сумму чисел
+    expect(foobar(5, 10)).to eq(15)
   end
 
   it '#foobar test 3' do
@@ -17,10 +17,10 @@ RSpec.describe 'Main' do
   end
 
   it '#greeting test 1' do
-    expect(greeting(@firstName, @surname, 18)).to eq("Привет, #{@firstName} #{@surname}. Самое время заняться делом!")
+    expect(greeting(@first_name, @surname, 18)).to eq("Привет, #{@first_name} #{@surname}. Самое время заняться делом!")
   end
 
   it '#greeting test 2' do
-    expect(greeting(@firstName, @surname, 17)).to eq("Привет, #{@firstName} #{@surname}. Тебе меньше 18 лет, но начать учиться программировать никогда не рано")
+    expect(greeting(@first_name, @surname, 17)).to eq("Привет, #{@first_name} #{@surname}. Тебе меньше 18 лет, но начать учиться программировать никогда не рано")
   end
 end
