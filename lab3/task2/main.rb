@@ -1,76 +1,23 @@
-def read_balance
-  if File.exist?('balance.txt')
-    File.read('balance.txt').chomp.to_f
-  else
-    100.0
-  end
-end
+def foo
+  file_data = File.read('students.txt').split("\n")
+  ages = file_data.map { |element| element[-2] + element[-1]}.uniq
 
-$balance = read_balance
-
-def check_num(num)
-  true_chars = %w[1 2 3 4 5 6 7 8 9 0 .]
-  tf = true
-  num.each_char do |element|
-    if true_chars.include?(element) == false
-      tf = false
+  while ages != []
+    puts 'Введите возраста:'
+    age = gets.chomp
+    if age == '-1'
+      File.read('results.txt').split("\n").each { |e|  p e}
+      File.delete('results.txt')
       break
     end
-  end
-  tf
-end
 
-def deposit
-  loop do
-    puts 'Введите сумму которую хотите внести:'
-    num = gets.chomp
-    if check_num num
-      $balance += num.to_f
-      break
-    else
-      puts 'Ошибка! Введен не правильный символ! Используйте только цифры.'
+    ages.delete(age)
+    file_data.each do |element|
+      File.write('results.txt', "#{element}\n", mode: 'a') if element[-2] + element[-1] == age
     end
   end
 end
 
-def withdraw
-  loop do
-    puts 'Введите сумму которую хотите вывести:'
-    num = gets.chomp
-    if check_num num
-      $balance -= num.to_f
-      break
-    else
-      puts 'Ошибка!Введен не правильный символ! Используйте только цифры.'
-    end
-  end
-end
 
-def show_balance
-  p $balance
-end
-
-
-loop do
-  puts 'Введите действие:'
-  puts 'D - внести деньги'
-  puts 'W - вывести деньги'
-  puts 'B - проверить баланс'
-  puts 'Q - выйти'
-  action = gets.chomp.upcase
-  case action
-  when 'D'
-    deposit
-  when 'W'
-    withdraw
-  when 'B'
-    show_balance
-  when 'Q'
-    File.write('balance.txt', $balance)
-    break
-  else
-    puts "Ошибка! Не опознаное действие: #{action}. Введите одно из следующих действий:"
-  end
-end
 
 
