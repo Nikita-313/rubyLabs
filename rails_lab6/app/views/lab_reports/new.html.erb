@@ -1,0 +1,14 @@
+<%= form_with model: @lab_report  do |f| %>
+  <div>
+    <h2>Title</h2>
+    <%= f.text_field :title, required: true, maxlength: 250, placeholder: "Title", size: "50" %>
+  </div>
+  <br/>
+  <div>
+    <h2>Description</h2>
+    <%= f.text_area :description, required: true, maxlength: 500, placeholder: "Description", size: "50x10" %>
+  </div>
+
+  <%= f.select :user_id, options_for_select(@users.collect { |user| ["#{user.firstName} #{user.lastName}", user.id] }) %> <br/>
+  <%= f.submit "Отправить отчёт" %>
+<% end %>
