@@ -5570,3 +5570,91 @@ Processing by LabReportsController#index as TURBO_STREAM
 Completed 200 OK in 23ms (Views: 20.2ms | ActiveRecord: 0.9ms | Allocations: 6216)
 
 
+Started GET "/" for 127.0.0.1 at 2022-01-04 17:22:58 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.7.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.7.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 552)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 5154)
+
+
+Started GET "/lab_reports" for 127.0.0.1 at 2022-01-04 17:23:08 +0300
+Processing by LabReportsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lab_reports/index.html.erb within layouts/application
+  [1m[36mLabReport Load (0.2ms)[0m  [1m[34mSELECT "lab_reports".* FROM "lab_reports"[0m
+  ↳ app/views/lab_reports/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/lab_reports/index.html.erb:8
+  Rendered lab_reports/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 9944)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 73423)
+Completed 200 OK in 70ms (Views: 56.5ms | ActiveRecord: 1.4ms | Allocations: 81359)
+
+
+Started GET "/lab_reports/1" for 127.0.0.1 at 2022-01-04 17:24:00 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/lab_reports/1"):
+  
+Started GET "/lab_reports" for 127.0.0.1 at 2022-01-04 17:24:12 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LabReportsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lab_reports/index.html.erb within layouts/application
+  [1m[36mLabReport Load (0.2ms)[0m  [1m[34mSELECT "lab_reports".* FROM "lab_reports"[0m
+  ↳ app/views/lab_reports/index.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/lab_reports/index.html.erb:8
+  Rendered lab_reports/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 10101)
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 73517)
+Completed 200 OK in 75ms (Views: 61.4ms | ActiveRecord: 1.2ms | Allocations: 85237)
+
+
+Started GET "/lab_reports" for 127.0.0.1 at 2022-01-04 17:24:13 +0300
+Processing by LabReportsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lab_reports/index.html.erb within layouts/application
+  [1m[36mLabReport Load (0.3ms)[0m  [1m[34mSELECT "lab_reports".* FROM "lab_reports"[0m
+  ↳ app/views/lab_reports/index.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/lab_reports/index.html.erb:8
+  Rendered lab_reports/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1390)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 5877)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.6ms | Allocations: 6163)
+
+
+Started DELETE "/lab_reports/1" for 127.0.0.1 at 2022-01-04 17:24:15 +0300
+Processing by LabReportsController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mLabReport Load (0.6ms)[0m  [1m[34mSELECT "lab_reports".* FROM "lab_reports" WHERE "lab_reports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lab_reports_controller.rb:37:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lab_reports_controller.rb:38:in `destroy'
+  [1m[36mLabReport Destroy (0.8ms)[0m  [1m[31mDELETE FROM "lab_reports" WHERE "lab_reports"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/lab_reports_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lab_reports_controller.rb:38:in `destroy'
+Redirected to http://0.0.0.0:3000/lab_reports
+Completed 302 Found in 29ms (ActiveRecord: 10.4ms | Allocations: 3899)
+
+
+Started DELETE "/lab_reports" for 127.0.0.1 at 2022-01-04 17:24:15 +0300
+  
+ActionController::RoutingError (No route matches [DELETE] "/lab_reports"):
+  
+Started GET "/lab_reports" for 127.0.0.1 at 2022-01-04 17:24:15 +0300
+Processing by LabReportsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lab_reports/index.html.erb within layouts/application
+  [1m[36mLabReport Load (0.1ms)[0m  [1m[34mSELECT "lab_reports".* FROM "lab_reports"[0m
+  ↳ app/views/lab_reports/index.html.erb:4
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/lab_reports/index.html.erb:8
+  Rendered lab_reports/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1300)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 5782)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 6058)
+
+

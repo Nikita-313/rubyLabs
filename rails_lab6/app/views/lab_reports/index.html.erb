@@ -16,5 +16,5 @@
   <p>Mark: <%= report.grade %></p>
 
   <%= link_to '<button type="button">Add mark</button>'.html_safe, edit_lab_report_path(report) %>
-  <%= link_to '<button type="button">Remove</button>'.html_safe, lab_report_path(report), data: {method: :delete, confirm: 'Are you sure?' } %>
+  <%= link_to '<button type="button">Remove</button>'.html_safe, lab_report_path(report), data: { "turbo-method": :delete } %>
 <% end %>

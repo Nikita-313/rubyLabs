@@ -34,7 +34,9 @@ class LabReportsController < ApplicationController
   end
 
   def destroy
-    puts "destroy================="
+    @lab_report = LabReport.find_by id: params[:id]
+    @lab_report.destroy
+    redirect_to lab_reports_path
   end
 
 end
