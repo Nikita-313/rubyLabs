@@ -1,0 +1,6 @@
+<%= form_with model: @lab_report do |f| %>
+  <h1>Mark</h1>
+  <%= f.select :grade, options_for_select(%i[A B C D E FX F].collect { |e| ["#{e}"] }) %> <br/>
+  <br/>
+  <%= f.submit "Save" %>
+<% end %>

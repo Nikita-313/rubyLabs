@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab6</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application" %>
+
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% if admin_signed_in? %>
+    <%= link_to 'Выйти', destroy_admin_session_path, data: { "turbo-method": :delete } %>
+    <% else %>
+      <%= link_to 'Войти', new_admin_session_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
